@@ -18,9 +18,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/register', (req, res, next) => {  
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
+  const phoneNumber = req.body.phoneNumber
 
-  const queryText = 'INSERT INTO "user" (username, password) VALUES ($1, $2) RETURNING id';
-  pool.query(queryText, [username, password])
+  const queryText = 'INSERT INTO "user" (username, password,phone_number) VALUES ($1, $2, $3) RETURNING id';
+  pool.query(queryText, [username, password, '+1' + phoneNumber])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
