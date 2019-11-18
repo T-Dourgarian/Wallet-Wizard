@@ -1,36 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 
-const Nav = (props) => (
-  <div className="nav">
-    <Link to="/home">
-      <h2 className="nav-title">The Wallet Wizard</h2>
-    </Link>
-    <div className="nav-right">
-      
-      <Link className="nav-link" to="/home">
-        {/* Show this link if they are logged in or not,
+class Nav extends Component {
+
+  routeToHome = () => {
+    this.props.history.push('/home')
+  }
+
+  render() {
+    return (
+      <div className="nav">
+        <Link to="/home" className="nav-title">
+          The Wallet Wizard
+        </Link>
+        <div className="nav-right">
+
+          <Link className="nav-link" to="/home" >
+            {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
         and call this link 'Login / Register' if they are not */}
-        {props.user.id ? 'Home' : 'Login / Register'}
-      </Link>
-      
-      {/* Show the link to the info page and the logout button if the user is logged in */}
-      
-      {props.user.id && (
-        <>
-          <LogOutButton className="nav-link"/>
-        </>
-      )}
+            {this.props.user.id ? 'Home' : 'Login / Register'}
+          </Link>
+
+          {/* Show the link to the info page and the logout button if the user is logged in */}
+
+          {this.props.user.id && (
+            <>
+              <LogOutButton className="nav-link padding-right" />
+            </>
+          )}
 
 
-      {/* Always show this link since the about page is not protected */}
-    </div>
-  </div>
-);
+          {/* Always show this link since the about page is not protected */}
+        </div>
+      </div>
+    )
+  }
+}
 
 // Instead of taking everything from state, we just want the user
 // object to determine if they are logged in

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import CardView from '../CardView/CardView';
 
 
 class Dashboard extends Component {
@@ -10,7 +11,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        HELLO
+        <CardView />
       </div>
   )}
 }

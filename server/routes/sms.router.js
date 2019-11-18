@@ -1,20 +1,10 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const bodyParser = require('body-parser');
 const CronJob = require('cron').CronJob;
 const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
-/**
- * GET route template
- */
-// router.get('/', (req, res) => {
-    
-// });
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('build'));
 
 let gettingCouponDetails = false;
 let matchDate;
