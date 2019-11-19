@@ -15,6 +15,12 @@ class CreateCard extends Component {
         })
     }
 
+    cancelCreate = () => {
+        this.setState({
+            onCreate:false
+        })
+    }
+
     render() {
         return (
             <>
@@ -24,8 +30,21 @@ class CreateCard extends Component {
                         <button className="cardButton couponButton" onClick={this.handleCardSelect}><i className="fas fa-plus-square fa-lg plusIcon"></i> New coupon</button>
                     </div>:
                     <div className="cardCreateEdit">
-                        <label className="locationLabel">
+
+                        <label className="locationLabelCreate">
                             Location:<input className="locationInputCreate"/>
+                        </label>
+                        <i class="fas fa-ban fa-2x cancelIcon" onClick={this.cancelCreate}></i>
+                        <br/>
+
+                        <label className="creditLabelCreate">
+                            Credit:<input className="creditInputCreate"/>
+                        </label>
+
+                        <br/>
+
+                        <label className="expirationlabelCreate">
+                            Expiration:<input type='date' className="expirationInputCreate"/>
                         </label>
                     </div>
                 }

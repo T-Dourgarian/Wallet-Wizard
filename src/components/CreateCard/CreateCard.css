@@ -69,9 +69,19 @@ button:hover {
 }
 
 
-.locationLabel {
+.locationLabelCreate {
     font-size: 20px;
     margin: .5rem;
+}
+
+.creditLabelCreate {
+    font-size: 20px;
+    margin: .5rem;
+}
+
+.expirationlabelCreate {
+    font-size: 20px;
+    margin: .5rem;   
 }
 
 .locationInputCreate {
@@ -84,4 +94,27 @@ button:hover {
     padding:.35rem;
     width: 14rem;
     border:1px solid black;
+}
+
+.creditInputCreate {
+    margin-top:3rem;
+    border-style: none;
+    border:1px solid black;
+    border-radius: 4px;
+    padding:4px;
+    width:10.5rem;
+} 
+
+.expirationInputCreate {
+    margin-top:.5rem;
+    border-style: none;
+    border:1px solid black;
+    border-radius: 4px;
+    padding:2px;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.815);
+    color:rgb(22, 22, 22);
+    font-family: 'Roboto';
 }
