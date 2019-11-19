@@ -9,7 +9,22 @@ class CardView extends Component {
 
 
     state = {
-        editMode: false
+        editMode: false,
+        editDetails: {
+            location:"",
+            credit:"",
+            expiration:""
+        }
+    }
+
+    handleChangeFor = (property,event) => {
+        this.setState({
+            ...this.state,
+            editDetails: {
+                ...this.state.editDetails,
+                [property]:event.target.value
+            }
+        })
     }
 
 
@@ -22,6 +37,8 @@ class CardView extends Component {
             this.setState({
                 editMode:false
             })
+
+            this.props.dispatch({type:"EDIT_CARD",payload:this.state.editDetails})
         }
     }
 
@@ -33,13 +50,18 @@ class CardView extends Component {
                         <div className="cardLocation">{this.props.card.location}</div>
                         <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
                         <div className="cardCredit">Credit: {this.props.card.credit}</div>
-                        <div className="cardExpiration">Expiration: {this.props.card.expiration}</div>
+                        <div className="cardExpiration">Expiration: {this.props.card.expiration.split('T')[0]}</div>
                     </div> :
                     <div className="card">
-                        <input placeholder=" Location" className="locationInput"/>
-                        <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
-                        <div className="cardCredit">Credit: <input placeholder="e.g. BOGO" className="creditInput"/></div>
-                        <div className="cardExpiration">Expiration: {this.props.card.expiration}</div>
+                        <input value={this.props.card.location} className="locationInput" onChange={event => this.handleChangeFor('location',event)}/>
+                        <i className="far fa-save fa-lg saveIcon" onClick={this.switchEditMode}></i> <br/>
+                        <label className="creditLabel" HTMLFor="creditInput">
+                            Credit: <input name="creditInput" value={this.props.card.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>
+                        </label>
+                        <br/>
+                        <label className="creditLabel" HTMLFor="expirationlabel">
+                            Expiration: <input value={this.props.card.expiration.split('T')[0]} name="expirationlabel" type="date" onChange={event => this.handleChangeFor('expiration',event)} className="cardExpiration cardExpiration-input"/>
+                        </label>
                     </div>
                 }
             </>
