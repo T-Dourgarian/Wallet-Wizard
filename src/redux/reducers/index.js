@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
+import cardsReducer from './cardsReducer';
 import user from './userReducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
+  cardsReducer,
 });
 
 export default rootReducer;

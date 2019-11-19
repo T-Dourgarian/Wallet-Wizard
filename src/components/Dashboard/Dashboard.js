@@ -5,14 +5,17 @@ import CardView from '../CardView/CardView';
 
 class Dashboard extends Component {
   componentDidMount () {
-
+    this.props.dispatch({type:"GET_CARDS"});
   }
 
   render() {
     return (
       <div>
-        <CardView />
+        {this.props.cardsReducer && this.props.cardsReducer.map((card,i) => <CardView key={i} card={card}/>)}
+        <pre>{JSON.stringify(this.props.cardsReducer,null,2)}</pre>
       </div>
+
+
   )}
 }
 
