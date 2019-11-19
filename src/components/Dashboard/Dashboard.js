@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import CardView from '../CardView/CardView';
-
+import CreateCard from '../CreateCard/CreateCard';
 
 class Dashboard extends Component {
   componentDidMount () {
@@ -11,11 +11,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        {this.props.cardsReducer && this.props.cardsReducer.map((card,i) => <CardView key={i} card={card}/>)}
-        <pre>{JSON.stringify(this.props.cardsReducer,null,2)}</pre>
+        <CreateCard />
+        {this.props.searchCardsReducer && this.props.searchCardsReducer.map((card,i) => <CardView key={i} card={card}/>)}
       </div>
-
-
   )}
 }
 

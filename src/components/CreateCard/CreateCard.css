@@ -1,0 +1,87 @@
+.cardCreate {
+    width:28%;
+    min-height: 10rem;
+    height:11rem;
+    background-color:#e39b00;
+    opacity: .85;
+    border-radius:4px;
+    border:1px dashed black;
+    /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
+    margin:2rem;
+    display: inline-block;
+    font-family: 'Roboto';
+    overflow:auto;
+    text-align:center;
+}
+
+.cardCreateEdit {
+    width:28%;
+    min-height: 10rem;
+    height:11rem;
+    background-color:#e39b00;
+    opacity: .85;
+    border-radius:4px;
+    border:1px dashed black;
+    /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
+    margin:2rem;
+    display: inline-block;
+    font-family: 'Roboto';
+    overflow:auto;
+}
+
+
+.createH1 {
+    text-align: center;
+    margin-bottom:1rem;
+}
+
+.giftcardButton {
+    width: 10rem;
+    height:2rem;
+    border-radius: 4px;
+    margin-top:2.5rem;
+    border:1px solid black;
+    color:black;
+    font-size: 15px;
+    background-color: rgb(245, 245, 245);
+}
+.couponButton {
+    width: 10rem;
+    height:2rem;
+    border-radius: 4px;
+    margin-top:1.5rem;
+    border:1px solid black;
+    color:black;
+    font-size: 15px;
+    background-color: rgb(245, 245, 245);
+}
+
+
+button:focus {outline:none;}
+button:hover {
+    cursor: pointer;
+    background-color:rgb(255, 255, 255);
+    box-shadow: -1px 1px 1px 1px rgb(65, 65, 65);
+}
+
+.plusIcon {
+    color:rgb(0, 173, 0);
+}
+
+
+.locationLabel {
+    font-size: 20px;
+    margin: .5rem;
+}
+
+.locationInputCreate {
+    outline-width: 0;
+    font-size: 25px;
+    margin-top:.55rem;
+    margin-bottom:0px;
+    border-radius:4px;
+    border-style: none;
+    padding:.35rem;
+    width: 14rem;
+    border:1px solid black;
+}

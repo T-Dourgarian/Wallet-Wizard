@@ -61,14 +61,14 @@ class CardView extends Component {
                     </div> :
                     <div className="card">
                         <input value={this.state.editDetails.location} className="locationInput" onChange={event => this.handleChangeFor('location',event)}/>
-                        <i class="fas fa-ban fa-lg cancelIcon" onClick={() => this.turnEditModeOff()}></i>
-                        <i className="far fa-save fa-lg saveIcon" onClick={() => this.switchEditMode(this.props.card.id)}></i> <br/>
-                        <label className="creditLabel" htmlFor="creditInput">
-                            Credit: <input name="creditInput" value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>
+                        <i class="fas fa-ban fa-2x cancelIcon" onClick={() => this.turnEditModeOff()}></i>
+                        <i className="far fa-save fa-2x saveIcon" onClick={() => this.switchEditMode(this.props.card.id)}></i> <br/>
+                        <label className="creditLabel">
+                            Credit: <input  value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>
                         </label>
                         <br/>
-                        <label className="creditLabel" htmlFor="expirationlabel">
-                            Expiration: <input value={this.state.editDetails.expiration.split('T')[0]} name="expirationlabel" type="date" onChange={event => this.handleChangeFor('expiration',event)} className="cardExpiration cardExpiration-input"/>
+                        <label className="creditLabel">
+                            Expiration: <input value={this.state.editDetails.expiration.split('T')[0]} type="date" onChange={event => this.handleChangeFor('expiration',event)} className="cardExpiration cardExpiration-input"/>
                         </label>
                     </div>
                 }

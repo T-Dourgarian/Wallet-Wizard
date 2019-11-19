@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import SearchBar from '../SearchBar/SearchBar';
 import './Nav.css';
+
 
 class Nav extends Component {
 
@@ -13,6 +15,9 @@ class Nav extends Component {
   render() {
     return (
       <div className="nav">
+        <SearchBar />
+
+
         <Link to="/home" className="nav-title">
           The Wallet Wizard
         </Link>

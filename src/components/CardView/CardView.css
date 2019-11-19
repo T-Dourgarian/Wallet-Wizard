@@ -1,11 +1,12 @@
 .card {
     width:28%;
     min-height: 10rem;
+    height:11rem;
     background-color:#e39b00;
     opacity: .85;
     border-radius:4px;
     border:none;
-    box-shadow: -2px 2px 5px 2px rgb(102, 102, 102);
+    box-shadow: -1px 2px 5px 2px rgb(102, 102, 102);
     margin:2rem;
     display: inline-block;
     font-family: 'Roboto';
@@ -78,7 +79,7 @@ input:focus {outline:none;}
 .saveIcon {
     float: right;
     margin-right: 1rem;
-    margin-top:1.5rem;
+    margin-top:1rem;
 }
 
 .saveIcon:hover {
@@ -89,7 +90,7 @@ input:focus {outline:none;}
 .cancelIcon {
     float: right;
     margin-right: 1rem;
-    margin-top:1.5rem;
+    margin-top:1rem;
 }
 
 .cancelIcon:hover {
@@ -106,4 +107,6 @@ input:focus {outline:none;}
     padding-top:1px;
 }
 
-
+input {
+    color:rgb(68, 68, 68);
+}
