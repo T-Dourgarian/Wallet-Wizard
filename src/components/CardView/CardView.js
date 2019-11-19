@@ -11,9 +11,9 @@ class CardView extends Component {
     state = {
         editMode: false,
         editDetails: {
-            location:"",
-            credit:"",
-            expiration:""
+            location:this.props.card.location,
+            credit:this.props.card.credit,
+            expiration:this.props.card.expiration
         }
     }
 
@@ -28,7 +28,7 @@ class CardView extends Component {
     }
 
 
-    switchEditMode = () => {
+    switchEditMode = (id) => {
         if (!this.state.editMode) {
             this.setState({
                 editMode:true
@@ -37,9 +37,16 @@ class CardView extends Component {
             this.setState({
                 editMode:false
             })
-
-            this.props.dispatch({type:"EDIT_CARD",payload:this.state.editDetails})
+            this.props.dispatch({type:"EDIT_CARD",payload:{details:this.state.editDetails,id:id}})
         }
+    }
+
+
+    turnEditModeOff = () => {
+        this.setState({
+            ...this.state,
+            editMode:false,
+        })
     }
 
     render() {
@@ -53,14 +60,15 @@ class CardView extends Component {
                         <div className="cardExpiration">Expiration: {this.props.card.expiration.split('T')[0]}</div>
                     </div> :
                     <div className="card">
-                        <input value={this.props.card.location} className="locationInput" onChange={event => this.handleChangeFor('location',event)}/>
-                        <i className="far fa-save fa-lg saveIcon" onClick={this.switchEditMode}></i> <br/>
-                        <label className="creditLabel" HTMLFor="creditInput">
-                            Credit: <input name="creditInput" value={this.props.card.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>
+                        <input value={this.state.editDetails.location} className="locationInput" onChange={event => this.handleChangeFor('location',event)}/>
+                        <i class="fas fa-ban fa-lg cancelIcon" onClick={() => this.turnEditModeOff()}></i>
+                        <i className="far fa-save fa-lg saveIcon" onClick={() => this.switchEditMode(this.props.card.id)}></i> <br/>
+                        <label className="creditLabel" htmlFor="creditInput">
+                            Credit: <input name="creditInput" value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>
                         </label>
                         <br/>
-                        <label className="creditLabel" HTMLFor="expirationlabel">
-                            Expiration: <input value={this.props.card.expiration.split('T')[0]} name="expirationlabel" type="date" onChange={event => this.handleChangeFor('expiration',event)} className="cardExpiration cardExpiration-input"/>
+                        <label className="creditLabel" htmlFor="expirationlabel">
+                            Expiration: <input value={this.state.editDetails.expiration.split('T')[0]} name="expirationlabel" type="date" onChange={event => this.handleChangeFor('expiration',event)} className="cardExpiration cardExpiration-input"/>
                         </label>
                     </div>
                 }

@@ -23,12 +23,13 @@
   color: #ffffff;
   text-align: center;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 20px;
   height:7rem;
   text-align: center;
   line-height: 7rem;
-  padding-left:2rem;
-  padding-right:2rem;
+  /* padding-left:2rem;
+  padding-right:2rem; */
+  width:6.5rem;
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -38,7 +39,7 @@
 }
 
 .nav-link:hover {
-  background-color: #d88b74;
+  background-color: #ffc549;
 }
 
 .nav-right {
@@ -46,5 +47,5 @@
 }
 
 .padding-right {
-  margin-right: 5rem;
+  margin-right: 0;
 }
