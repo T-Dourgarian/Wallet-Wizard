@@ -79,7 +79,7 @@ input:focus {outline:none;}
 .saveIcon {
     float: right;
     margin-right: 1rem;
-    margin-top:1rem;
+    margin-top:.75rem;
 }
 
 .saveIcon:hover {
@@ -90,7 +90,7 @@ input:focus {outline:none;}
 .cancelIcon {
     float: right;
     margin-right: 1rem;
-    margin-top:1rem;
+    margin-top:.75rem;
 }
 
 .cancelIcon:hover {

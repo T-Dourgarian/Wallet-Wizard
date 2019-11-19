@@ -6,7 +6,7 @@ function* editCard(action) {
     console.log("in action",action);
   try {
     console.log("In edit saga");
-    yield axios.post(`/cards/${action.payload.id}`,action.payload.details);
+    yield axios.put(`/cards/${action.payload.id}`,action.payload.details);
     yield put({type:"GET_CARDS"});
   } catch (error) {
     console.log('Cards get request failed', error);

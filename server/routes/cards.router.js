@@ -17,7 +17,7 @@ router.get('/',rejectUnauthenticated,(req,res) => {
 })
 
 
-router.post('/:id',rejectUnauthenticated,(req,res) => {
+router.put('/:id',rejectUnauthenticated,(req,res) => {
     const queryText = 
     `UPDATE cards
         SET location=$1,
@@ -27,7 +27,21 @@ router.post('/:id',rejectUnauthenticated,(req,res) => {
     `;
 
     pool.query(queryText,[req.body.location,req.body.credit,req.body.expiration,req.params.id])
-        .then(result => {
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+
+
+router.post('/',rejectUnauthenticated,(req,res) => {
+    const queryText = `INSERT INTO cards(user_id,location,credit,expiration,type) VALUES($1,$2,$3,$4,$5);`
+
+    pool.query(queryText,[req.user.id,req.body.location,req.body.credit,req.body.expiration,req.body.type])
+        .then(() => {
             res.sendStatus(200);
         })
         .catch(error => {
