@@ -49,12 +49,17 @@ class CardView extends Component {
         })
     }
 
+    deleteCard = () => {
+        this.props.dispatch({type:"DELETE_CARD",payload:this.props.card.id})
+    }
+
     render() {
         return (
             <>
                 {!this.state.editMode ?
                     <div className="card">
                         <div className="cardLocation">{this.props.card.location}</div>
+                        <i className="fas fa-trash-alt fa-lg garbageIcon" onClick={this.deleteCard}></i>
                         <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
                         <div className="cardCredit">Credit: {this.props.card.credit}</div>
                         <div className="cardExpiration">Expiration: {this.props.card.expiration.split('T')[0]}</div>

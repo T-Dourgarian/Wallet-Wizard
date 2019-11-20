@@ -15,12 +15,13 @@ class Nav extends Component {
   render() {
     return (
       <div className="nav">
-        <SearchBar />
 
 
         <Link to="/home" className="nav-title">
           The Wallet Wizard
         </Link>
+
+        {this.props.user.id && <SearchBar />}
         <div className="nav-right">
 
           <Link className="nav-link" to="/home" >
