@@ -10,34 +10,47 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 router.post('/', (req, res) => {
   const twiml = new MessagingResponse();
   let messageReceived = req.body.Body;
-  let messageData = messageReceived.split(' ');
   console.log(messageReceived);
+
+
 
   let userId;
   let getUserQuery = `SELECT * FROM users WHERE phone_number=$1;`;
   pool.query(getUserQuery, [req.body.From])
     .then(result => {
-      userId = result.rows.id
-      if (/[Gg]ift card/.test(messageReceived) && /[Aa]dd/.test(messageReceived)) {
-        try {
-          let dateRegex = /([0-9]{4}\/[0-9]{2}\/[0-9]{2})/;
-          let matchDate = dateRegex.exec(messageReceived)[0];
 
-          let properNounRegex = /(\s[A-Z]+[A-Za-z']*)+/;
-          let matchLocation = properNounRegex.exec(messageReceived)[0].trim();
-
-          let amountRegex = /[$][0-9]*/;
-          let matchAmount = amountRegex.exec(messageReceived)[0].split('$')[1];
+      userId = result.rows[0].id
 
 
-          // adding giftcard handler
+      let matchDate;
+      let matchLocation;
+      let matchAmount
 
+      try {
+        let dateRegex = /([0-9]{4}\/[0-9]{2}\/[0-9]{2})/;
+        if (dateRegex.test(messageReceived)) {
+          matchDate = dateRegex.exec(messageReceived)[0];
+        }
+
+        let properNounRegex = /(\s[A-Z]+[A-Za-z']*)+/;
+        if (properNounRegex.test(messageReceived)) {
+          matchLocation = properNounRegex.exec(messageReceived)[0].trim();
+        }
+
+        let amountRegex = /[$][0-9]*/;
+        if (amountRegex.test(messageReceived)) {
+          matchAmount = amountRegex.exec(messageReceived)[0].split('$')[1];
+        }
+        
+        // regex failed
+
+        if (/[Gg]ift[ ]*card/.test(messageReceived) && /[Aa]dd/.test(messageReceived)) {
           let addGiftcardQuery = `INSERT INTO cards(user_id,location,credit,expiration,type) VALUES($1,$2,$3,$4,$5);`;
           pool.query(addGiftcardQuery, [userId, matchLocation, matchAmount, matchDate, 'gift card'])
             .then(() => {
               client.messages
                 .create({
-                  body: `Your giftcard to ${matchLocation} of ${matchAmount} has been added to your dashboard!`,
+                  body: `Your ${matchAmount} giftcard to ${matchLocation} has been added to your dashboard!`,
                   from: '+12015849969',
                   to: req.body.From
                 })
@@ -45,27 +58,36 @@ router.post('/', (req, res) => {
             }).catch(error => {
               console.log(error);
             })
-
-
-          // regex failed
-        } catch (error) {
-          console.log(error)
-          client.messages
-            .create({
-              body: `Sorry, I couldn't get all the info for that gift card, please try again.`,
-              from: '+12015849969',
-              to: req.body.From
-            })
-            .then(message => console.log(message.sid));
-        }
-      } else {
-        axios.put('/sms/coupon',{messageReceived: messageReceived})
+        } else if (/[Cc]oupon/.test(messageReceived) && /[Aa]dd/.test(messageReceived)) {
+          let detailsRegex = /[Dd]etails[:, ](.*)/;
+          let couponDetails;
+          if (detailsRegex.test(messageReceived)) {
+            couponDetails = detailsRegex.exec(messageReceived)[1].trim();
+          }
+  
+          let addGiftcardQuery = `INSERT INTO cards(user_id,location,credit,expiration,type) VALUES($1,$2,$3,$4,$5);`;
+          pool.query(addGiftcardQuery, [userId, matchLocation, couponDetails, matchDate, 'coupon'])
             .then(() => {
-              console.log('to coupon route');
+              client.messages
+                .create({
+                  body: `Your ${couponDetails} ${matchLocation} coupon has been added to your dashboard!`,
+                  from: '+12015849969',
+                  to: req.body.From
+                })
+                .then(message => console.log(message.sid));
+            }).catch(error => {
+              console.log(error);
             })
-            .catch(error => {
-              console.log('Error routing to coupon' ,error)
-            })
+        }
+      } catch (error) {
+        console.log(error)
+        client.messages
+          .create({
+            body: `Sorry, I couldn't get all the info for that, please try again.`,
+            from: '+12015849969',
+            to: req.body.From
+          })
+          .then(message => console.log(message.sid));
       }
     })
     .catch(error => {
@@ -74,12 +96,6 @@ router.post('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/xml' });
   res.end(twiml.toString());
 });
-
-
-router.put('/coupon',(req,res) => {
-  console.log(req.body.messageReceived);
-})
-
 // Retrieves any date string from sms message
 // in try because I potentially already have certain data
 // and I only need coupon details... so I don't need to re-extract the data from a coupons details text
