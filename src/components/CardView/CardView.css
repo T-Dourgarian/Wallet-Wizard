@@ -5,11 +5,15 @@
     background-color:#e39b00c0;
     border-radius:4px;
     border:none;
-    box-shadow: -1px 2px 5px 2px rgb(102, 102, 102);
+    box-shadow: -2px 2px 5px 2px rgb(102, 102, 102);
     margin:2rem;
     display: inline-block;
     font-family: 'Roboto';
     overflow:auto
+}
+
+.card:hover {
+    box-shadow: -2px 2px 6px 4px rgb(119, 119, 119);
 }
 
 
@@ -37,7 +41,7 @@
     border:1px solid black;
 }
 
-input:focus {outline:none;}
+*:focus {outline:none;}
 
 
 .cardCredit {
