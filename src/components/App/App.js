@@ -10,6 +10,7 @@ import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import Dashboard from '../Dashboard/Dashboard';
+import Google_Map from '../Google_Map/Google_Map';
 
 import './App.css';
 
@@ -37,6 +38,11 @@ class App extends Component {
               exact
               path="/home"
               component={Dashboard}
+            />
+            <ProtectedRoute
+              exact
+              path="/maps"
+              component={Google_Map}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

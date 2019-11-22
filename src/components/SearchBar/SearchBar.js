@@ -30,7 +30,7 @@ class SearchBar extends Component {
                     <input placeholder="Taco Bell, Nike, Kohls" name="searchBar" className="searchBar" onChange={event => this.handleSearchChange('searchString',event)} />
                 </label>
 
-                <select class="dropDownType" onChange={(event) => this.handleSearchChange('type',event)}>
+                <select className="dropDownType" onChange={(event) => this.handleSearchChange('type',event)}>
                     <option value=''>All</option>
                     <option value="gift card">Gift card</option>
                     <option value="coupon">Coupon</option>

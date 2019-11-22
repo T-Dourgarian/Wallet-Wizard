@@ -20,9 +20,15 @@ class Nav extends Component {
         <Link to="/home" className="nav-title">
           The Wallet Wizard
         </Link>
-
         {this.props.user.id && <SearchBar />}
         <div className="nav-right">
+
+        <Link className="nav-link" to="/maps" >
+            {/* Show this link if they are logged in or not,
+        but call this link 'Home' if they are logged in,
+        and call this link 'Login / Register' if they are not */}
+            {this.props.user.id && 'Maps'}
+          </Link>
 
           <Link className="nav-link" to="/home" >
             {/* Show this link if they are logged in or not,
