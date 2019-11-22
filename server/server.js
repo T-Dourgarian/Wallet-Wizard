@@ -26,14 +26,15 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/sms',smsRouter);
-app.use('/cards',cardsRouter)
+app.use('/sms', smsRouter);
+app.use('/cards', cardsRouter)
 
 // Serve static files
 app.use(express.static('build'));
 
 // App Set //
 const PORT = process.env.PORT || 5000;
+
 
 
 

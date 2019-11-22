@@ -6,6 +6,7 @@ import cardsSaga from './cardsSaga';
 import editCardSaga from './editCardSaga'
 import addCardSaga from './addCardSaga';
 import deleteCardSaga from './deleteCardSaga';
+import coordinatesSaga from './coordinatesSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -22,6 +23,7 @@ export default function* rootSaga() {
     cardsSaga(),
     editCardSaga(),
     addCardSaga(),
-    deleteCardSaga()
+    deleteCardSaga(),
+    coordinatesSaga()
   ]);
 }

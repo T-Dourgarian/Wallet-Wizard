@@ -7,6 +7,7 @@ function* getCards() {
     console.log("In Saga");
     const cards = yield axios.get("/cards");
     yield put({type:"SET_CARDS",payload:cards.data});
+    yield put({ type: "GET_COORDINATES",payload:cards.data });
   } catch (error) {
     console.log('Cards get request failed', error);
   }
