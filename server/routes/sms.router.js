@@ -18,7 +18,6 @@ router.post('/', (req, res) => {
   let getUserQuery = `SELECT * FROM users WHERE phone_number=$1;`;
   pool.query(getUserQuery, [req.body.From])
     .then(result => {
-
       userId = result.rows[0].id
 
 
@@ -78,16 +77,18 @@ router.post('/', (req, res) => {
             }).catch(error => {
               console.log(error);
             })
-        }
-      } catch (error) {
-        console.log(error)
-        client.messages
+        } else {
+          console.log("Didnt see coupon or gift card ")
+          client.messages
           .create({
             body: `Sorry, I couldn't get all the info for that, please try again.`,
             from: '+12015849969',
             to: req.body.From
           })
           .then(message => console.log(message.sid));
+        }
+      } catch (error) {
+        console.log(error)
       }
     })
     .catch(error => {

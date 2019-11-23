@@ -5,15 +5,15 @@
     background-color:#e39b00c0;
     border-radius:4px;
     border:none;
-    box-shadow: -2px 2px 5px 2px rgb(102, 102, 102);
+    box-shadow: -2px 2px 1px 1px rgb(94, 94, 94);
     margin:2rem;
     display: inline-block;
-    font-family: 'Roboto';
+    font-family: 'Roboto', serif;
     overflow:auto
 }
 
 .card:hover {
-    box-shadow: -2px 2px 6px 4px rgb(119, 119, 119);
+    box-shadow: -2px 2px 4px 2px rgb(119, 119, 119);
 }
 
 

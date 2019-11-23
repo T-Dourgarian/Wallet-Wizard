@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './LoginPage.css';
 
 class LoginPage extends Component {
   state = {
@@ -40,29 +41,27 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
-          <h1>Login</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
+        <form onSubmit={this.login} id="loginForm">
+          <div className="userNameDiv">
+              Username:<br/>
               <input
+                className="userNameInput"
                 type="text"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
+
           </div>
-          <div>
-            <label htmlFor="password">
-              Password:
+          <div className="userNameDiv">
+              Password:<br/>
               <input
+                className="userNameInput"
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
           </div>
           <div>
             <input
@@ -72,15 +71,16 @@ class LoginPage extends Component {
               value="Log In"
             />
           </div>
-        </form>
-        <center>
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
           >
             Register
           </button>
+        </form>
+        <center>
+
         </center>
       </div>
     );

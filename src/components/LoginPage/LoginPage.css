@@ -1,0 +1,26 @@
+#loginForm {
+    font-family: arial;
+    background: #e39b00c0;
+    border-radius: 4px;
+    color:rgb(51, 51, 51);
+    height:fit-content;
+    width:23rem;
+    border:1px solid black;
+    box-shadow: 0px 1px 8px 1px rgb(94, 94, 94);
+}
+
+.userNameInput {
+    height:1.5rem;
+    width:9rem;
+    border-style: none;
+    border-radius: 4px;
+    border:1px solid black;
+}
+
+label {
+    color:rgb(27, 27, 27);
+}
+
+.userNameDiv {
+    margin-left: 20%;
+}

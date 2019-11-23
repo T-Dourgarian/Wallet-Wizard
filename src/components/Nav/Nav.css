@@ -4,11 +4,20 @@
   text-align: center;
   text-decoration: none;
   font-size: 45px;
-  height:7rem;
   text-align: center;
-  line-height: 7rem;
   padding-left:2rem;
   padding-right:2rem;
+}
+
+.nav-title-login {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 45px;
+  text-align: center;
+  width: 60%;
+  margin-left:20%;
 }
 
 .nav {
