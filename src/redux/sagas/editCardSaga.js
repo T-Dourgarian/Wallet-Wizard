@@ -3,9 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* editCard(action) {
-    console.log("in action",action);
   try {
-    console.log("In edit saga");
     yield axios.put(`/cards/${action.payload.id}`,action.payload.details);
     yield put({type:"GET_CARDS"});
   } catch (error) {

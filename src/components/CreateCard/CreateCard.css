@@ -8,7 +8,7 @@
     /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
     margin:2rem;
     display: inline-block;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     overflow:auto;
     text-align:center;
 }
@@ -24,7 +24,7 @@
     /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
     margin:2rem;
     display: inline-block;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     overflow:auto;
 }
 
@@ -95,7 +95,6 @@ button:hover {
     border:1px solid black;
     background-color: rgba(255, 255, 255, 0.815);
     color:rgb(22, 22, 22);
-    font-family: 'sans-serif';
 }
 
 .creditInputCreate {
@@ -107,7 +106,6 @@ button:hover {
     width:10.5rem;
     background-color: rgba(255, 255, 255, 0.815);
     color:rgb(22, 22, 22);
-    font-family: 'sans-serif';
 } 
 
 .expirationInputCreate {
@@ -118,5 +116,4 @@ button:hover {
     padding:2px;
     background-color: rgba(255, 255, 255, 0.815);
     color:rgb(22, 22, 22);
-    font-family: 'sans-serif';
 }

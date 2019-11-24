@@ -43,25 +43,25 @@ class LoginPage extends Component {
         )}
         <form onSubmit={this.login} id="loginForm">
           <div className="userNameDiv">
-              Username:<br/>
-              <input
-                className="userNameInput"
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
+            Username:<br />
+            <input
+              className="userNameInput input"
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInputChangeFor('username')}
+            />
 
           </div>
           <div className="userNameDiv">
-              Password:<br/>
-              <input
-                className="userNameInput"
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
+            Password:<br />
+            <input
+              className="userNameInput input"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInputChangeFor('password')}
+            />
           </div>
           <div>
             <input
@@ -71,13 +71,16 @@ class LoginPage extends Component {
               value="Log In"
             />
           </div>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
-          >
-            Register
-          </button>
+          <div id="signUpLinkDiv">
+            New user?   
+            <button
+                type="button"
+                id="link-button-"
+                onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+              >
+                Sign up.
+            </button>
+          </div>
         </form>
         <center>
 

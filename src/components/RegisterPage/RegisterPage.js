@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../LoginPage/LoginPage';
 
 class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
-    phoneNumber:''
+    phoneNumber: ''
   };
 
   registerUser = (event) => {
@@ -17,7 +18,7 @@ class RegisterPage extends Component {
         payload: {
           username: this.state.username,
           password: this.state.password,
-          phoneNumber:this.state.phoneNumber
+          phoneNumber: this.state.phoneNumber
         },
       });
     } else {
@@ -42,23 +43,32 @@ class RegisterPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
+        <form onSubmit={this.registerUser} id="loginForm">
+          <button
+            type="button"
+            className="link-button-to-login"
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
           <h1>Register User</h1>
-          <div>
+          <div className="userNameDiv">
             <label htmlFor="username">
-              Username:
+              Username:<br />
               <input
                 type="text"
                 name="username"
+                className="userNameInput input"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
           </div>
-          <div>
+          <div className="userNameDiv">
             <label htmlFor="password">
-              Password:
+              Password:<br />
               <input
+                className="userNameInput input"
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -66,10 +76,11 @@ class RegisterPage extends Component {
               />
             </label>
           </div>
-          <div>
+          <div className="userNameDiv">
             <label htmlFor="phoneNumber">
-              Phone Number: 1+
+              Phone Number: 1+<br />
               <input
+                className="userNameInput input"
                 type="number"
                 name="phoneNumber"
                 value={this.state.phoneNumber}
@@ -77,26 +88,16 @@ class RegisterPage extends Component {
               />
             </label>
           </div>
-
-
           <div>
             <input
-              className="register"
+              className="log-in"
               type="submit"
               name="submit"
               value="Register"
             />
           </div>
+
         </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
-          >
-            Login
-          </button>
-        </center>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 #loginForm {
-    font-family: arial;
+    font-family: 'Roboto', sans-serif;
     background: #e39b00c0;
     border-radius: 4px;
     color:rgb(51, 51, 51);
@@ -7,20 +7,63 @@
     width:23rem;
     border:1px solid black;
     box-shadow: 0px 1px 8px 1px rgb(94, 94, 94);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
 }
 
 .userNameInput {
+    background-color: #f4f4f4;
     height:1.5rem;
     width:9rem;
     border-style: none;
     border-radius: 4px;
     border:1px solid black;
+    -webkit-appearance: none; 
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 label {
     color:rgb(27, 27, 27);
 }
 
-.userNameDiv {
-    margin-left: 20%;
+
+
+#link-button- {
+    background:none;
+    color:rgb(28, 28, 223);
+    border:none;
+    padding-left:3px;
+    font: inherit;
+    border-bottom:1px solid rgb(28, 28, 223);
+    cursor: pointer;
+}
+
+
+#signUpLinkDiv {
+    text-decoration: none;
+    margin-top:5%;
+
+}
+
+.link-button-to-login:hover {
+    box-shadow: none;
+    border:1px solid rgb(99, 99, 99);
+}
+
+.link-button-to-login {
+    padding-left:1rem;
+    padding-right:1rem;
+    padding-top:.33rem;
+    padding-bottom: .33rem;
+    border-radius: 4px;
+    border:1px solid rgb(167, 167, 167);
+    /* float: left; */
 }

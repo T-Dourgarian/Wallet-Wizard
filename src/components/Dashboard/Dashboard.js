@@ -13,6 +13,7 @@ class Dashboard extends Component {
       <div>
         <CreateCard />
         {this.props.searchCardsReducer && this.props.searchCardsReducer.map((card, i) => <CardView key={i} card={card} />)}
+        <pre>{JSON.stringify(this.props,null,2)}</pre>
       </div>
     )
   }

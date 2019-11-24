@@ -27,7 +27,7 @@ class SearchBar extends Component {
             <>
                 <label>
                     <i className="fas fa-search fa-lg searchIcon"></i>
-                    <input placeholder="Taco Bell, Nike, Kohls" name="searchBar" className="searchBar" onChange={event => this.handleSearchChange('searchString',event)} />
+                    <input placeholder="Location" name="searchBar" className="searchBar" onChange={event => this.handleSearchChange('searchString',event)} />
                 </label>
 
                 <select className="dropDownType" onChange={(event) => this.handleSearchChange('type',event)}>

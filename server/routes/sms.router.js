@@ -94,7 +94,7 @@ router.post('/', (req, res) => {
     .catch(error => {
       console.log(error);
     })
-  res.writeHead(200, { 'Content-Type': 'text/xml' });
+  res.writeHead(200, { 'Content-Type' : 'text/xml' });
   res.end(twiml.toString());
 });
 // Retrieves any date string from sms message
