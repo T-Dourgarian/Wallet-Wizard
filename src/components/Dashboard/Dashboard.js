@@ -8,17 +8,13 @@ Geocode.setApiKey("AIzaSyA9E46P330M7-A6C5DyXqNsqE7zA3JTWcg");
 
 class Dashboard extends Component {
 
-  state = {
-    userPosition:""
-  }
 
   showPosition = (position) => {
-    console.log(position)
-
     Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
       response => {
         const address = response.results[0];
-        console.log('ADDRESS',address);
+        this.props.dispatch({type:'SET_USER_LOCATION',payload:[address.geometry.location,address.address_components[3].long_name +" " + address.address_components[5].long_name]});
+        console.log(this.props.userLocation);
       },
       error => {
         console.error(error);
@@ -28,13 +24,12 @@ class Dashboard extends Component {
 
   } 
 
-  componentDidMount() {
-    this.props.dispatch({ type: "GET_CARDS" });
-    console.log(process.env.MAPS_API_KEY)
+  componentDidMount = () => {
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
     }
-
+    this.props.dispatch({ type: "GET_CARDS" });
   }
 
   render() {
@@ -42,6 +37,7 @@ class Dashboard extends Component {
       <div>
         <CreateCard />
         {this.props.searchCardsReducer && this.props.searchCardsReducer.map((card, i) => <CardView key={i} card={card} />)}
+        <pre>{JSON.stringify(this.props.userLocation)}</pre>
       </div>
     )
   }
