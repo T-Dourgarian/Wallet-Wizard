@@ -2,7 +2,7 @@
     width:28%;
     min-height: 10rem;
     height:11rem;
-    background-color: #181818;
+    background-color: #333333;
     border-radius:4px;
     border:1px dashed black;
     /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
@@ -42,7 +42,7 @@
     border:1px solid rgb(170, 170, 170);
     color:#f4f4f4;
     font-size: 15px;
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(44, 44, 44);
 }
 .couponButton {
     width: 10rem;
@@ -52,7 +52,7 @@
     border:1px solid rgb(170, 170, 170);
     color:#f4f4f4;
     font-size: 15px;
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(44, 44, 44);
 }
 
 

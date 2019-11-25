@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Marker, InfoWindow } from 'react-google-maps';
-import getDistance from 'geolib/es/getDistance';
+import * as geolib from 'geolib';
+
 
 class Google_Map extends Component {
     state = {
@@ -9,11 +10,21 @@ class Google_Map extends Component {
     }
 
     handleMarkerClick = () => {
-
         this.setState({
             clicked: !this.state.clicked
         })
     }
+
+
+    findDistance = (coord) => {
+
+        let meters = geolib.getDistance(
+            coord,
+            this.props.userLocation[0]
+        );
+        return meters/1609.34 + " miles away"
+    }
+
     render() {
         return (
             <>
@@ -25,7 +36,7 @@ class Google_Map extends Component {
                     {this.state.clicked &&
                         <InfoWindow>
                             <div className="markerDetailsDiv">
-                                {this.props.locationName + ' ' + this.props.addressDetails[0].formatted_address}
+                                {this.props.locationName + ', ' + this.props.addressDetails[0].formatted_address + ': ' + this.findDistance(this.props.position)}
                             </div>
                         </InfoWindow>
                     }
