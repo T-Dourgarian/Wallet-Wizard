@@ -17,6 +17,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-geocode": "^0.2.1",
     "react-google-location": "^1.2.2",
     "react-google-maps": "^9.4.5",
     "react-places-autocomplete": "^7.2.1",

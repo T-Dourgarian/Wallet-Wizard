@@ -5,14 +5,16 @@
     width:17rem;
     margin-top:3%;
     font-size: 15px;
-    background-color:rgba(255, 255, 255, 0.685);
-    color:rgb(31, 31, 31);
-    /* border:1px solid rgb(73, 73, 73); */
-    box-shadow: -1px 1px 1px 1px rgb(94, 94, 94)
+    background-color:#777777;
+    color:rgb(238, 238, 238);
+}
+
+.searchBar::placeholder {
+    color:#bdbdbd;
 }
 
 .searchIcon {
-    color: rgb(255, 255, 255);
+    color: #f4f4f4;
     opacity: .5;
     margin-left:2rem;
     margin-right:.33rem;
@@ -20,13 +22,12 @@
 }
 
 .dropDownType {
-    color:rgb(58, 58, 58);
-    background-color:rgba(255, 255, 255, 0.685);
+    color:rgb(238, 238, 238);
+    background-color:#777777;
     height:2.2rem;
     margin-left:1rem;
     font-size: 15px;
     border:none;
-    box-shadow: -1px 1px 1px 1px rgb(94, 94, 94)
 }
 
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from 'react-google-maps';
 import MapMarker from '../MapMarker/MapMarker'
-// import axios from 'axios';
 
 class Google_Map extends Component {
 
@@ -19,7 +18,7 @@ class Google_Map extends Component {
                 defaultZoom={10}
                 defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
             >
-                {this.props.coordinatesReducer[0] && this.props.coordinatesReducer.map((coordinate,i) => <MapMarker key={i} position={coordinate}/>)}
+                {this.props.coordinatesReducer[0] && this.props.coordinatesReducer.map((coordinate,i) => <MapMarker key={i} position={coordinate[0]} addressDetails={coordinate[1]} locationName={coordinate[2]}/>)}
             </GoogleMap>);
     }
 

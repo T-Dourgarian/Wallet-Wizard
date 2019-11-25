@@ -12,14 +12,14 @@ function* getCoordinates(action) {
 
 };
 
-let handleSelect = async (value) => {
+let handleSelect = async (location,value) => {
     const results = await geocodeByAddress(value)
     const latlng = await getLatLng(results[0]);
-    return latlng;
+    return [latlng,results,location];
 }
 
 function* getCoordinate(card) {
-        return yield handleSelect(card.location + "Minneapolis, MN");
+        return yield handleSelect(card.location, card.location + "Minneapolis, MN");
 }
 
 function* coordinatesSaga() {

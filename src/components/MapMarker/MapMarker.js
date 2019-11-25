@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker, MarkerWithLabel } from 'react-google-maps';
+import { Marker, InfoWindow } from 'react-google-maps';
 
 class Google_Map extends Component {
     state = {
-        isHovering: false
+        clicked: false
     }
 
-    changeHovering = () => {
+    handleMarkerClick = () => {
+
         this.setState({
-            isHovering: !this.state.isHover
+            clicked: !this.state.clicked
         })
     }
     render() {
         return (
             <>
-            {
-                this.state.isHovering ? <div className="popUp">Hello There</div> :
-                    <Marker
-                        position={this.props.position}
-                    >
-                    </Marker>
-            }
+                <Marker
+                    onClick={this.handleMarkerClick}
+                    className="mapsMarker"
+                    position={this.props.position}
+                >
+                    {this.state.clicked &&
+                        <InfoWindow>
+                            <div className="markerDetailsDiv">
+                                {this.props.locationName + ', ' + this.props.addressDetails[0].formatted_address}
+                            </div>
+                        </InfoWindow>
+                    }
+                </Marker>
             </>
 
         )

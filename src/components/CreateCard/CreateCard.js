@@ -53,8 +53,8 @@ class CreateCard extends Component {
             <>
                 {!this.state.onCreate ?
                     <div className="cardCreate">
-                        <button className="cardButton giftcardButton" onClick={() => this.handleTypeSelect('gift card')}><i className="fas fa-plus-square fa-lg plusIcon"></i> New gift card</button> <br />
-                        <button className="cardButton couponButton" onClick={() => this.handleTypeSelect('coupon')}><i className="fas fa-plus-square fa-lg plusIcon"></i> New coupon</button>
+                        <button className="cardButton giftcardButton button" onClick={() => this.handleTypeSelect('gift card')}><i className="fas fa-plus-square fa-lg plusIcon"></i> New gift card</button> <br />
+                        <button className="cardButton couponButton button" onClick={() => this.handleTypeSelect('coupon')}><i className="fas fa-plus-square fa-lg plusIcon"></i> New coupon</button>
                     </div>:
                     <div className="cardCreateEdit">
 

@@ -1,3 +1,18 @@
-.popUp {
-    position: absolute;
+.markerDetailsDiv {
+    background-color: white;
+}
+
+.mapsMarker {
+    width:5rem;
+    height:5rem;
+}
+
+area {
+    width:5rem;
+    height:5rem;
+}
+
+
+.mapsMarker:label {
+    color:red;
 }
