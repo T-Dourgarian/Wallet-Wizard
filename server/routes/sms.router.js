@@ -101,29 +101,5 @@ router.post('/', (req, res) => {
 
 
 
-// let date = new Date();
-// date.setSeconds(date.getSeconds() + 1);
-
-// new CronJob('45 12 18 * * *', function () {
-//   let currentDate = new Date();
-//   pool.query(`SELECT * FROM giftcards;`)
-//       .then(result => {
-//         let newDate;
-//         for (giftcard of result.rows) {
-//           newDate = new Date(giftcard.expiration);
-//           newDate.setDate(newDate.getDate()-7);
-//           if (currentDate > newDate) {
-//             console.log('adsf');
-//             client.messages
-//               .create({
-//                 body: `Your ${giftcard.location} giftcard: $${giftcard.amount}, expires in one week! Use it!`,
-//                 from: '+12015849969',
-//                 to: '+16512629188'
-//               })
-//               .then(message => console.log(message.sid));
-//           }
-//         }
-//       })
-// }, null, true, 'America/Resolute');
 
 module.exports = router;
