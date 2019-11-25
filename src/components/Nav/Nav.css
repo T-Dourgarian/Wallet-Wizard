@@ -8,6 +8,7 @@
   padding-left:2rem;
   padding-right:2rem;
   font-family: 'Roboto', sans-serif;
+  line-height: 2rem;
 }
 
 .nav-title-login {
@@ -24,7 +25,7 @@
 .nav {
   overflow: hidden;
   background-color: #333333;
-  height: 7rem;
+  height: 6rem;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -36,7 +37,7 @@
   font-size: 20px;
   height:7rem;
   text-align: center;
-  line-height: 7rem;
+  line-height: 6rem;
   /* padding-left:2rem;
   padding-right:2rem; */
   width:6.5rem;

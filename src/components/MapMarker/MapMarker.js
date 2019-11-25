@@ -22,7 +22,7 @@ class Google_Map extends Component {
             coord,
             this.props.userLocation[0]
         );
-        return meters/1609.34 + " miles away"
+        return (meters/1609.34).toFixed(2) + " miles away"
     }
 
     render() {
