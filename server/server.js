@@ -38,7 +38,7 @@ app.use(express.static('build'));
 
 new CronJob('0 0 8 * * *', function () {
   let currentDate = new Date();
-  pool.query(`SELECT * FROM cards JOIN users on cards.user_id=users.id;`)
+  pool.query(`SELECT * FROM cards JOIN users on cards.user_id=users.id WHERE user_id=${userId};`)
       .then(result => {
         let newDate;
         for (card of result.rows) {

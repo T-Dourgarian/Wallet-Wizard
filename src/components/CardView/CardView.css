@@ -81,7 +81,7 @@
     float: right;
     margin-right: 1rem;
     margin-top:1.5rem;
-    color:rgb(253, 196, 9);
+    color: rgb(240, 240, 240);
 }
 
 .editIcon:hover {
@@ -104,7 +104,7 @@
     float: right;
     margin-right: 1rem;
     margin-top:.75rem;
-    color: rgb(201, 20, 20);
+    color: rgb(209, 209, 209);
 }
 
 .cancelIcon:hover {
@@ -115,7 +115,7 @@
     float: right;
     margin-right: 1rem;
     margin-top:1.5rem;
-    color: rgb(201, 20, 20);
+    color: rgb(240, 240, 240);
 }
 
 .garbageIcon:hover {

@@ -14,7 +14,35 @@ class CardView extends Component {
             location:'',
             credit:'',
             expiration:''
+        },
+        color:""
+    }
+
+    componentDidMount = () => {
+        console.log('we are here')
+        let currentDate = new Date();
+        let expirationDate = new Date(this.props.card.expiration);
+        console.log('current date',currentDate)
+        console.log('expiration Date',expirationDate)
+        this.setColor(currentDate,expirationDate);
+    }
+
+    setColor = (currentDate,expirationDate) => {
+        let newColor;
+        if (currentDate > expirationDate.setDate(expirationDate.getDate() - 3)){
+            // yellow
+            newColor='#ffb300';
+        } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
+            // red
+            newColor='#ff412c';
+        } else {
+            // green
+            newColor='#0fa101'
         }
+        this.setState({
+            ...this.state,
+            color:newColor
+        })
     }
 
     handleChangeFor = (property,event) => {
@@ -63,7 +91,7 @@ class CardView extends Component {
         return (
             <>
                 {!this.state.editMode ?
-                    <div className="card">
+                    <div className="card" style={{background:this.state.color}}>
                         <div className="cardLocation">{this.props.card.location}</div>
                         <i className="fas fa-trash-alt fa-lg garbageIcon" onClick={this.deleteCard}></i>
                         <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
@@ -71,12 +99,12 @@ class CardView extends Component {
                         <div className="cardCredit">Credit: {this.props.card.credit}</div>
                         <div className="cardExpiration">Expiration: {this.props.card.expiration.split('T')[0]}</div>
                     </div> :
-                    <div className="card">
+                    <div className="card" style={{background:this.state.color}}>
                         <input value={this.state.editDetails.location} className="locationInput" onChange={event => this.handleChangeFor('location',event)}/>
                         <i className="fas fa-ban fa-2x cancelIcon" onClick={() => this.turnEditModeOff()}></i>
                         <i className="far fa-save fa-2x saveIcon" onClick={() => this.switchEditMode(this.props.card.id)}></i> <br/>
                         <label className="creditLabel">
-                            Credit: <input  value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>
+                            Credit: <input  value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>      
                         </label>
                         <br/>
                         <label className="creditLabel">
