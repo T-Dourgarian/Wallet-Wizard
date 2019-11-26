@@ -18,7 +18,7 @@ class Nav extends Component {
 
         {this.props.user.id ? 
         <h1 className="nav-title">
-          The Wallet Wizard
+          Wallet Wizard
         </h1>:
         
         <h1 className="nav-title-login">Wallet Wizard</h1>
