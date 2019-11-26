@@ -33,14 +33,14 @@ class Dashboard extends Component {
   setColor = (currentDate, expirationDate) => {
     let newColor;
     if (currentDate > expirationDate.setDate(expirationDate.getDate() - 3)) {
-        // yellow
-        newColor = '#ffb300';
-    } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
         // red
-        newColor = '#ff412c';
+        newColor = 'rgb(136, 0, 0)';
+    } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
+        // yellow
+        newColor = '#FFB600';
     } else {
         // green
-        newColor = '#0fa101'
+        newColor = '#008800'
     }
     return newColor
   }
