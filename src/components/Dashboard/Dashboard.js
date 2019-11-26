@@ -20,8 +20,6 @@ class Dashboard extends Component {
         console.error(error);
       }
     );
-
-
   } 
 
   componentDidMount = () => {
@@ -32,11 +30,26 @@ class Dashboard extends Component {
     this.props.dispatch({ type: "GET_CARDS" });
   }
 
+  setColor = (currentDate, expirationDate) => {
+    let newColor;
+    if (currentDate > expirationDate.setDate(expirationDate.getDate() - 3)) {
+        // yellow
+        newColor = '#ffb300';
+    } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
+        // red
+        newColor = '#ff412c';
+    } else {
+        // green
+        newColor = '#0fa101'
+    }
+    return newColor
+  }
+
   render() {
     return (
       <div>
         <CreateCard />
-        {this.props.searchCardsReducer && this.props.searchCardsReducer.map((card, i) => <CardView key={i} card={card} />)}
+        {this.props.searchCardsReducer && this.props.searchCardsReducer.map((card, i) => <CardView key={i} card={card}  color={this.setColor(new Date(),new Date(card.expiration))} />)}
       </div>
     )
   }

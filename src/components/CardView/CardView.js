@@ -6,51 +6,23 @@ import './CardView.css';
 
 class CardView extends Component {
 
-
-
     state = {
         editMode: false,
         editDetails: {
-            location:'',
-            credit:'',
-            expiration:''
-        },
-        color:""
-    }
-
-    componentDidMount = () => {
-        console.log('we are here')
-        let currentDate = new Date();
-        let expirationDate = new Date(this.props.card.expiration);
-        console.log('current date',currentDate)
-        console.log('expiration Date',expirationDate)
-        this.setColor(currentDate,expirationDate);
-    }
-
-    setColor = (currentDate,expirationDate) => {
-        let newColor;
-        if (currentDate > expirationDate.setDate(expirationDate.getDate() - 3)){
-            // yellow
-            newColor='#ffb300';
-        } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
-            // red
-            newColor='#ff412c';
-        } else {
-            // green
-            newColor='#0fa101'
+            location: '',
+            credit: '',
+            expiration: ''
         }
-        this.setState({
-            ...this.state,
-            color:newColor
-        })
     }
 
-    handleChangeFor = (property,event) => {
+
+
+    handleChangeFor = (property, event) => {
         this.setState({
             ...this.state,
             editDetails: {
                 ...this.state.editDetails,
-                [property]:event.target.value
+                [property]: event.target.value
             }
         })
     }
@@ -59,19 +31,19 @@ class CardView extends Component {
     switchEditMode = (id) => {
         if (!this.state.editMode) {
             this.setState({
-                editMode:true,
+                editMode: true,
                 editDetails: {
-                    location:this.props.card.location,
-                    credit:this.props.card.credit,
-                    expiration:this.props.card.expiration
+                    location: this.props.card.location,
+                    credit: this.props.card.credit,
+                    expiration: this.props.card.expiration
                 }
             })
-            
+
         } else {
             this.setState({
-                editMode:false
+                editMode: false
             })
-            this.props.dispatch({type:"EDIT_CARD",payload:{details:this.state.editDetails,id:id}})
+            this.props.dispatch({ type: "EDIT_CARD", payload: { details: this.state.editDetails, id: id } })
         }
     }
 
@@ -79,36 +51,38 @@ class CardView extends Component {
     turnEditModeOff = () => {
         this.setState({
             ...this.state,
-            editMode:false,
+            editMode: false,
         })
     }
 
     deleteCard = () => {
-        this.props.dispatch({type:"DELETE_CARD",payload:this.props.card.id})
+        this.props.dispatch({ type: "DELETE_CARD", payload: this.props.card.id })
     }
 
     render() {
         return (
             <>
                 {!this.state.editMode ?
-                    <div className="card" style={{background:this.state.color}}>
+                    <div className="card" style={{ background: this.props.color }}>
+                        {this.state.color}
                         <div className="cardLocation">{this.props.card.location}</div>
                         <i className="fas fa-trash-alt fa-lg garbageIcon" onClick={this.deleteCard}></i>
                         <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
                         <div className="cardType">Type: {this.props.card.type}</div>
                         <div className="cardCredit">Credit: {this.props.card.credit}</div>
                         <div className="cardExpiration">Expiration: {this.props.card.expiration.split('T')[0]}</div>
+
                     </div> :
-                    <div className="card" style={{background:this.state.color}}>
-                        <input value={this.state.editDetails.location} className="locationInput" onChange={event => this.handleChangeFor('location',event)}/>
+                    <div className="card" style={{ background: this.props.color }}>
+                        <input value={this.state.editDetails.location} className="locationInput" onChange={event => this.handleChangeFor('location', event)} />
                         <i className="fas fa-ban fa-2x cancelIcon" onClick={() => this.turnEditModeOff()}></i>
-                        <i className="far fa-save fa-2x saveIcon" onClick={() => this.switchEditMode(this.props.card.id)}></i> <br/>
+                        <i className="far fa-save fa-2x saveIcon" onClick={() => this.switchEditMode(this.props.card.id)}></i> <br />
                         <label className="creditLabel">
-                            Credit: <input  value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit',event)}/>      
+                            Credit: <input value={this.state.editDetails.credit} className="cardCredit cardCredit-input" onChange={event => this.handleChangeFor('credit', event)} />
                         </label>
-                        <br/>
+                        <br />
                         <label className="creditLabel">
-                            Expiration: <input value={this.state.editDetails.expiration.split('T')[0]} type="date" onChange={event => this.handleChangeFor('expiration',event)} className="cardExpiration cardExpiration-input"/>
+                            Expiration: <input value={this.state.editDetails.expiration.split('T')[0]} type="date" onChange={event => this.handleChangeFor('expiration', event)} className="cardExpiration cardExpiration-input" />
                         </label>
                     </div>
                 }

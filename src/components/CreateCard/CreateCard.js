@@ -10,7 +10,8 @@ class CreateCard extends Component {
             type: "",
             location: "",
             credit: "",
-            exipiration: ""
+            exipiration: "",
+            color:""
         }
     }
 
