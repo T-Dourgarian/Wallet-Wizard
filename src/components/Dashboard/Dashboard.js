@@ -14,7 +14,6 @@ class Dashboard extends Component {
       response => {
         const address = response.results[0];
         this.props.dispatch({type:'SET_USER_LOCATION',payload:[address.geometry.location,address.address_components[3].long_name +" " + address.address_components[5].long_name]});
-        console.log('USER LOCATION',this.props.userLocation);
       },
       error => {
         console.error(error);
@@ -37,7 +36,7 @@ class Dashboard extends Component {
         newColor = 'rgb(136, 0, 0)';
     } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
         // yellow
-        newColor = '#FFB600';
+        newColor = '#f5a700';
     } else {
         // green
         newColor = '#008800'

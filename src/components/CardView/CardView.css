@@ -93,22 +93,24 @@
     float: right;
     margin-right: 1rem;
     margin-top:.75rem;
-    color: rgb(29, 116, 29);
+    color: rgb(209, 209, 209);
 }
 
 .saveIcon:hover {
     cursor: pointer;
+    color:#f4f4f4;
 }
 
 .cancelIcon {
     float: right;
     margin-right: 1rem;
     margin-top:.75rem;
-    color: rgb(209, 209, 209);
+    color: rgb(224, 224, 224);
 }
 
 .cancelIcon:hover {
     cursor: pointer;
+    color:#f4f4f4;
 }
 
 .garbageIcon {

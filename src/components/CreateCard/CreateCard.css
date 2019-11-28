@@ -2,7 +2,7 @@
     width:28%;
     min-height: 10rem;
     height:11rem;
-    background-color: #333333;
+    background-color: #f0f0f0;
     border-radius:4px;
     border:1px dashed black;
     /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
@@ -17,8 +17,7 @@
     width:28%;
     min-height: 10rem;
     height:11rem;
-    background-color:#e39b00;
-    opacity: .85;
+    background-color: rgba(82, 82, 82, 0.85);
     border-radius:4px;
     border:1px dashed black;
     /* box-shadow: -1px 2px 5px 2px rgb(102, 102, 102); */
@@ -39,27 +38,25 @@
     height:2rem;
     border-radius: 4px;
     margin-top:2.5rem;
-    border:1px solid rgb(170, 170, 170);
     color:#f4f4f4;
     font-size: 15px;
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(58, 58, 58);
 }
 .couponButton {
     width: 10rem;
     height:2rem;
     border-radius: 4px;
     margin-top:1.5rem;
-    border:1px solid rgb(170, 170, 170);
     color:#f4f4f4;
     font-size: 15px;
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(58, 58, 58);
 }
 
 
 button:focus {outline:none;}
 .button:hover {
     cursor: pointer;
-    background-color:rgb(85, 85, 85);
+    box-shadow: 0px 3px 8px -3px rgb(49, 49, 49);
 }
 
 .plusIcon {
@@ -68,16 +65,19 @@ button:focus {outline:none;}
 
 
 .locationLabelCreate {
+    color:rgb(224, 224, 224);
     font-size: 20px;
     margin: .5rem;
 }
 
 .creditLabelCreate {
+    color:rgb(224, 224, 224);
     font-size: 20px;
     margin: .5rem;
 }
 
 .expirationlabelCreate {
+    color:rgb(224, 224, 224);
     font-size: 20px;
     margin: .5rem;   
 }

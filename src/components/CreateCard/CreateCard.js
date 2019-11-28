@@ -68,19 +68,19 @@ class CreateCard extends Component {
                     <div className="cardCreateEdit">
 
                         <label className="locationLabelCreate">
-                            Location:<input onChange={(event) => this.handleChangeFor('location', event)} className="locationInputCreate" />
+                            Location: <input onChange={(event) => this.handleChangeFor('location', event)} className="locationInputCreate" />
                         </label>
                         <i className="fas fa-ban fa-2x cancelIcon" onClick={this.cancelCreate}></i>
                         <i className="far fa-save fa-2x saveIcon" onClick={this.addCard}></i> <br />
 
                         <label className="creditLabelCreate">
-                            Credit:<input onChange={(event) => this.handleChangeFor('credit', event)} className="creditInputCreate" />
+                            Credit: <input onChange={(event) => this.handleChangeFor('credit', event)} className="creditInputCreate" />
                         </label>
 
                         <br />
 
                         <label className="expirationlabelCreate">
-                            Expiration:<input onChange={(event) => this.handleChangeFor('expiration', event)} type='date' className="expirationInputCreate" />
+                            Expiration: <input onChange={(event) => this.handleChangeFor('expiration', event)} type='date' className="expirationInputCreate" />
                         </label>
                     </div>
                 }
