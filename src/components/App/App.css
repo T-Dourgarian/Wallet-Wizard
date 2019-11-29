@@ -1,9 +1,15 @@
 body {
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     margin: 0px;
-    background-color: #cfcfcf;
+    background: linear-gradient(30deg, rgb(87, 87, 87) 0%, rgb(240, 240, 240) 100%);
     font-family: 'Roboto', sans-serif;
+    min-height: 100%;
 }
+
+html {
+  min-height: 100%;
+}
+
 
 .alert {
     background-color: #ff4545;

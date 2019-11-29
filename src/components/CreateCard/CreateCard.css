@@ -76,6 +76,12 @@ button:focus {outline:none;}
     margin: .5rem;
 }
 
+.typeLabelCreate {
+    color:rgb(224, 224, 224);
+    font-size: 20px;
+    margin: .5rem;
+}
+
 .expirationlabelCreate {
     color:rgb(224, 224, 224);
     font-size: 20px;
@@ -97,7 +103,7 @@ button:focus {outline:none;}
 }
 
 .creditInputCreate {
-    margin-top:3rem;
+    margin-top:.5rem;
     border-style: none;
     border:1px solid black;
     border-radius: 4px;

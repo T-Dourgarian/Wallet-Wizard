@@ -73,6 +73,14 @@ class CreateCard extends Component {
                         <i className="fas fa-ban fa-2x cancelIcon" onClick={this.cancelCreate}></i>
                         <i className="far fa-save fa-2x saveIcon" onClick={this.addCard}></i> <br />
 
+                        <br/>
+
+                        <label className="typeLabelCreate">
+                            Type: {this.state.newCard.type}
+                        </label>
+
+                        <br/>
+
                         <label className="creditLabelCreate">
                             Credit: <input onChange={(event) => this.handleChangeFor('credit', event)} className="creditInputCreate" />
                         </label>

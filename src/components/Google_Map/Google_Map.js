@@ -21,7 +21,7 @@ class Google_Map extends Component {
     }
 
     state = {
-        clicked: false
+        clicked: true
     }
 
     handleMarkerClick = () => {

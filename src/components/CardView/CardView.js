@@ -65,9 +65,11 @@ class CardView extends Component {
                 {!this.state.editMode ?
                     <div className="card" style={{ background: this.props.color }}>
                         {this.state.color}
-                        <div className="cardLocation">{this.props.card.location}</div>
-                        <i className="fas fa-trash-alt fa-lg garbageIcon" onClick={this.deleteCard}></i>
-                        <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
+                        <div className="cardBanner">
+                            <div className="cardLocation">{this.props.card.location}</div>
+                            <i className="fas fa-trash-alt fa-lg garbageIcon" onClick={this.deleteCard}></i>
+                            <i className="fas fa-pencil-alt fa-lg editIcon" onClick={this.switchEditMode}></i>
+                        </div>
                         <div className="cardType">Type: {this.props.card.type}</div>
                         <div className="cardCredit">Credit: {this.props.card.credit}</div>
                         <div className="cardExpiration">Expiration: {this.props.card.expiration.split('T')[0]}</div>

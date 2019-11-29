@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
             .then(() => {
               client.messages
                 .create({
-                  body: `Your ${matchAmount} giftcard to ${matchLocation} has been added to your dashboard!`,
+                  body: `Your $${matchAmount} giftcard to ${matchLocation} has been added to your dashboard!`,
                   from: '+12015849969',
                   to: req.body.From
                 })

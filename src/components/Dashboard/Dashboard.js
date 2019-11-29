@@ -33,13 +33,13 @@ class Dashboard extends Component {
     let newColor;
     if (currentDate > expirationDate.setDate(expirationDate.getDate() - 3)) {
         // red
-        newColor = 'rgb(136, 0, 0)';
+        newColor = 'linear-gradient(45deg, rgba(136,0,0,1) 54%, rgba(255,190,138,1) 100%)';
     } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
         // yellow
-        newColor = '#f5a700';
+        newColor = 'linear-gradient(45deg, rgba(245,195,0,1) 35%, rgba(255,136,136,1) 100%)';
     } else {
         // green
-        newColor = '#008800'
+        newColor = 'linear-gradient(45deg, rgba(0,136,72,1) 54%, rgba(255,190,138,1) 100%)'
     }
     return newColor
   }
