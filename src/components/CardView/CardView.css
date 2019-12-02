@@ -5,13 +5,11 @@
     background-color: #333333;
     color: #f3f3f3;
     border-radius:4px;
-    border:none;
     box-shadow: 0px 3px 8px -3px rgb(49, 49, 49);
     margin:2rem;
     display: inline-block;
-    font-family: 'Roboto', sans-serif;
     overflow:auto;
-    border: 1px solid transparent;
+    border:1px solid transparent;
 }
 
 .card:hover {

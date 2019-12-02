@@ -1,12 +1,13 @@
 .searchBar {
     border-style:none;
-    border-radius: 6px;
+    border-radius: 4px;
     padding:.5rem;
     width:17rem;
     margin-top:2%;
     font-size: 15px;
     background-color:#777777;
     color:rgb(238, 238, 238);
+    border:1px solid rgb(212, 212, 212);
 }
 
 .searchBar::placeholder {
@@ -22,12 +23,12 @@
 }
 
 .dropDownType {
+    border:1px solid rgb(212, 212, 212);
     color:rgb(238, 238, 238);
     background-color:#777777;
     height:2.2rem;
     margin-left:1rem;
     font-size: 15px;
-    border:none;
 }
 
 

@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
 
         let amountRegex = /[$][0-9]*/;
         if (amountRegex.test(messageReceived)) {
-          matchAmount = amountRegex.exec(messageReceived)[0].split('$')[1];
+          matchAmount = amountRegex.exec(messageReceived)[0];
         }
 
         // ADD GIFTCARD
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
             .then(() => {
               client.messages
                 .create({
-                  body: `Your $${matchAmount} giftcard to ${matchLocation} has been added to your dashboard!`,
+                  body: `Your ${matchAmount} giftcard to ${matchLocation} has been added to your dashboard!`,
                   from: '+12015849969',
                   to: req.body.From
                 })
@@ -131,7 +131,7 @@ new CronJob('0 0 8 * * *', function () {
           if (currentDate > newDate) {
             client.messages
               .create({
-                body: `Your ${card.credit} ${card.location} ${card.type}, expires soon! Use it!`,
+                body: `Your ${card.credit} ${card.location} ${card.type} expires soon! Use it!`,
                 from: '+12015849969',
                 to: card.phone_number
               })
