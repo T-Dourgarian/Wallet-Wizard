@@ -1,7 +1,8 @@
 body {
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     margin: 0px;
-    background: linear-gradient(30deg, rgb(87, 87, 87) 0%, rgb(240, 240, 240) 100%);
+    /* background: linear-gradient(30deg, rgb(184, 184, 184) 0%, rgb(240, 240, 240) 100%); */
+    background: rgb(216, 216, 216);
     font-family: 'Roboto', sans-serif;
     min-height: 100%;
 }

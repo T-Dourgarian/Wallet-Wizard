@@ -3,18 +3,20 @@
     min-height: 10rem;
     height:11rem;
     background-color: #333333;
-    color: #f4f4f4;
+    color: #f3f3f3;
     border-radius:4px;
     border:none;
     box-shadow: 0px 3px 8px -3px rgb(49, 49, 49);
     margin:2rem;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
-    overflow:auto
+    overflow:auto;
+    border: 1px solid transparent;
 }
 
 .card:hover {
     box-shadow: 0px 3px 8px 1.5px rgb(49, 49, 49);
+    border:1px solid rgb(221, 221, 221);
 }
 
 
@@ -92,7 +94,7 @@
     float: right;
     margin-right: 1rem;
     margin-top:.75rem;
-    color: rgb(209, 209, 209);
+    color: rgb(235, 235, 235);
 }
 
 .saveIcon:hover {
@@ -104,7 +106,7 @@
     float: right;
     margin-right: 1rem;
     margin-top:.75rem;
-    color: rgb(224, 224, 224);
+    color: rgb(235, 235, 235);
 }
 
 .cancelIcon:hover {
@@ -139,8 +141,5 @@ input {
 
 
 .cardBanner {
-    border-bottom: 1px solid rgb(146, 146, 146);
-    padding-top:1.5%;
-    padding-bottom:1.5%;
-    background-color: rgba(59, 59, 59, 0.7);
+    padding-top:3%;
 }

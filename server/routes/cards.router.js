@@ -5,8 +5,8 @@ const router = express.Router();
 
 
 router.get('/',rejectUnauthenticated,(req,res) => {
-    const queryText = `SELECT * FROM cards ORDER BY id DESC;`;
-    pool.query(queryText)
+    const queryText = `SELECT * FROM cards WHERE user_id=$1 ORDER BY id DESC;`;
+    pool.query(queryText,[req.user.id])
         .then(result => {
             res.send(result.rows);
         })

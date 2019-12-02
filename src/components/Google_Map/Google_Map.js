@@ -11,7 +11,8 @@ class Google_Map extends Component {
         Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
             response => {
                 const address = response.results[0];
-                this.props.dispatch({ type: 'SET_USER_LOCATION', payload: [address.geometry.location, address.address_components[3].long_name + " " + address.address_components[5].long_name] });
+                console.log('ADDRESS',address);
+                this.props.dispatch({ type: 'SET_USER_LOCATION', payload: [address.geometry.location, address.address_components[2].long_name + " " + address.address_components[4].long_name] });
                 this.props.dispatch({ type: "GET_CARDS" });
             },
             error => {

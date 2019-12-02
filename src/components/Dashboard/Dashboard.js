@@ -9,23 +9,8 @@ Geocode.setApiKey("AIzaSyA9E46P330M7-A6C5DyXqNsqE7zA3JTWcg");
 class Dashboard extends Component {
 
 
-  showPosition = (position) => {
-    Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
-      response => {
-        const address = response.results[0];
-        this.props.dispatch({type:'SET_USER_LOCATION',payload:[address.geometry.location,address.address_components[3].long_name +" " + address.address_components[5].long_name]});
-      },
-      error => {
-        console.error(error);
-      }
-    );
-  } 
-
   componentDidMount = () => {
-    
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition);
-    }
+  
     this.props.dispatch({ type: "GET_CARDS" });
   }
 
@@ -33,13 +18,13 @@ class Dashboard extends Component {
     let newColor;
     if (currentDate > expirationDate.setDate(expirationDate.getDate() - 3)) {
         // red
-        newColor = 'linear-gradient(45deg, rgba(136,0,0,1) 54%, rgba(255,190,138,1) 100%)';
+        newColor = 'linear-gradient(135deg, rgba(136,0,0,1) 10%, #ff6600 100%)';
     } else if (currentDate > expirationDate.setDate(expirationDate.getDate() - 7)) {
         // yellow
-        newColor = 'linear-gradient(45deg, rgba(245,195,0,1) 35%, rgba(255,136,136,1) 100%)';
+        newColor = 'linear-gradient(135deg, rgba(242,177,0,1) 10%, rgba(255,136,136,1) 100%)';
     } else {
         // green
-        newColor = 'linear-gradient(45deg, rgba(0,136,72,1) 54%, rgba(255,190,138,1) 100%)'
+        newColor = 'linear-gradient(135deg, #008848 10%, #9ccc00 100%)'
     }
     return newColor
   }
