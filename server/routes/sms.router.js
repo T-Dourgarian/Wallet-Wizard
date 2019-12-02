@@ -107,7 +107,13 @@ router.post('/', (req, res) => {
             .then(message => console.log(message.sid));
         }
       } catch (error) {
-        console.log(error)
+        client.messages
+        .create({
+          body: `Sorry, I couldn't get all the info for that, please try again.`,
+          from: '+12015849969',
+          to: req.body.From
+        })
+        .then(message => console.log(message.sid));
       }
     })
     .catch(error => {

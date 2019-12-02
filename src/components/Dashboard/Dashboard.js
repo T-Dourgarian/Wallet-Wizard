@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CardView from '../CardView/CardView';
 import CreateCard from '../CreateCard/CreateCard';
 import Geocode from "react-geocode";
+import Help from '../Help/Help';
 Geocode.setApiKey("AIzaSyA9E46P330M7-A6C5DyXqNsqE7zA3JTWcg");
 
 
@@ -34,6 +35,7 @@ class Dashboard extends Component {
       <div>
         <CreateCard />
         {this.props.searchCardsReducer && this.props.searchCardsReducer.map((card, i) => <CardView key={i} card={card}  color={this.setColor(new Date(),new Date(card.expiration))} />)}
+        <Help/>
       </div>
     )
   }

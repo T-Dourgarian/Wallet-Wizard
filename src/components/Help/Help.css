@@ -1,0 +1,25 @@
+.helpIcon {
+    position: fixed;
+    bottom: 1.5%;
+    right:1%;
+
+}
+
+.helpIcon:hover {
+    cursor: pointer;
+}
+
+.helpDiv {
+    color:rgb(19, 19, 19);
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+    border:1px solid rgb(24, 24, 24);
+    position: fixed;
+    background: rgb(243, 243, 243);
+    bottom: 1%;
+    right:.5%;
+    height:30%;
+    width:30%;
+    padding-left: 1%;
+}
