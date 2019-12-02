@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../LoginPage/LoginPage';
+import axios from 'axios';
 
 class RegisterPage extends Component {
   state = {
@@ -12,7 +13,7 @@ class RegisterPage extends Component {
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.username && this.state.password && this.state.phoneNumber) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
@@ -21,6 +22,13 @@ class RegisterPage extends Component {
           phoneNumber: this.state.phoneNumber
         },
       });
+
+      axios.post('/sms/initial',{phoneNumber:this.state.phoneNumber})
+            .then(response => {
+
+            }).catch(error => {
+              console.log(error)
+            });
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }

@@ -78,7 +78,7 @@ router.post('/', (req, res) => {
             }).catch(error => {
               console.log(error);
             })
-            // VIEW ALL CARDS
+          // VIEW ALL CARDS
         } else if (messageReceived === 'Show me the money') {
           let date;
           pool.query(`SELECT * FROM cards WHERE user_id=${userId}`)
@@ -108,12 +108,12 @@ router.post('/', (req, res) => {
         }
       } catch (error) {
         client.messages
-        .create({
-          body: `Sorry, I couldn't get all the info for that, please try again.`,
-          from: '+12015849969',
-          to: req.body.From
-        })
-        .then(message => console.log(message.sid));
+          .create({
+            body: `Sorry, I couldn't get all the info for that, please try again.`,
+            from: '+12015849969',
+            to: req.body.From
+          })
+          .then(message => console.log(message.sid));
       }
     })
     .catch(error => {
@@ -123,38 +123,47 @@ router.post('/', (req, res) => {
   res.end(twiml.toString());
 });
 
+router.post('/initial', (req, res) => {
+  client.messages
+    .create({
+      body: `Welcome to Wallet Wizard! You can add or view your gift cards and coupons right here! `,
+      from: '+12015849969',
+      to: req.body.phoneNumber
+    })
+    .then(message => console.log(message.sid));
+})
 
 new CronJob('0 0 8 * * *', function () {
   let currentDate = new Date();
   pool.query(`SELECT cards.id,location,credit,type,phone_number, expiration FROM cards JOIN users on cards.user_id=users.id;`)
-      .then(result => {
-        let newDate;
-        let holder;
-        for (card of result.rows) {
-          newDate = new Date(card.expiration);
-          holder = new Date(card.expiration);
-          newDate.setDate(newDate.getDate()-3);
-          if (currentDate > newDate) {
-            client.messages
-              .create({
-                body: `Your ${card.credit} ${card.location} ${card.type} expires soon! Use it!`,
-                from: '+12015849969',
-                to: card.phone_number
-              })
-              .then(message => console.log(message.sid));
-          }
-          if(currentDate >= holder.setDate(holder.getDate() + 1)) {
-            pool.query(`DELETE FROM cards WHERE id=${card.id};`)
-                .then(result => {
-                  console.log('In deleted')
-                }).catch(error => {
-                  console.log(error);
-                })
-          }
+    .then(result => {
+      let newDate;
+      let holder;
+      for (card of result.rows) {
+        newDate = new Date(card.expiration);
+        holder = new Date(card.expiration);
+        newDate.setDate(newDate.getDate() - 3);
+        if (currentDate > newDate) {
+          client.messages
+            .create({
+              body: `Your ${card.credit} ${card.location} ${card.type} expires soon! Use it!`,
+              from: '+12015849969',
+              to: card.phone_number
+            })
+            .then(message => console.log(message.sid));
         }
-      }).catch(error => {
-        console.log(error);
-      })
+        if (currentDate >= holder.setDate(holder.getDate() + 1)) {
+          pool.query(`DELETE FROM cards WHERE id=${card.id};`)
+            .then(result => {
+              console.log('In deleted')
+            }).catch(error => {
+              console.log(error);
+            })
+        }
+      }
+    }).catch(error => {
+      console.log(error);
+    })
 }, null, true, 'America/Resolute');
 
 
