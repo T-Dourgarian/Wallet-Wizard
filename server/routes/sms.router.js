@@ -133,7 +133,7 @@ router.post('/initial', (req, res) => {
     .then(message => console.log(message.sid));
 })
 
-new CronJob('*/5 * * * * *', function () {
+new CronJob('0 0 8 * * *', function () {
   let currentDate = new Date();
   pool.query(`SELECT cards.id,location,credit,type,phone_number, expiration FROM cards JOIN users on cards.user_id=users.id;`)
     .then(result => {
