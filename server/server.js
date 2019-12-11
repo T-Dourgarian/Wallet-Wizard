@@ -40,6 +40,13 @@ app.use(express.static('build'));
 const PORT = process.env.PORT || 5000;
 
 
+
+var http = require("http");
+setInterval(function() {
+    http.post("https://wallet-wizard.herokuapp.com/api/user/register");
+}, 300000); // every 5 minutes (300000)
+
+
 /** Listen * */
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
