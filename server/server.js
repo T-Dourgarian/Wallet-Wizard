@@ -36,6 +36,11 @@ app.use('/cards', cardsRouter)
 app.use(express.static('build'));
 
 
+
+app.get('/public',(req,res) => {
+  res.sendStatus(200);
+})
+
 // App Set //
 const PORT = process.env.PORT || 5000;
 
@@ -43,7 +48,7 @@ const PORT = process.env.PORT || 5000;
 
 var http = require("http");
 setInterval(function() {
-    http.post("https://wallet-wizard.herokuapp.com/api/user/register");
+    http.post("https://wallet-wizard.herokuapp.com/public");
 }, 300000); // every 5 minutes (300000)
 
 
