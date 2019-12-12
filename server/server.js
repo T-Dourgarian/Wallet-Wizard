@@ -4,6 +4,7 @@ require('dotenv').config();
 const pool = require('./modules/pool');
 const CronJob = require('cron').CronJob;
 const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+const axios = require('axios')
 
 const app = express();
 const bodyParser = require('body-parser');
@@ -46,9 +47,8 @@ const PORT = process.env.PORT || 5000;
 
 
 
-var http = require("http");
 setInterval(function() {
-    http.post("https://wallet-wizard.herokuapp.com/public");
+    axios.get("https://wallet-wizard.herokuapp.com/public");
 }, 300000); // every 5 minutes (300000)
 
 

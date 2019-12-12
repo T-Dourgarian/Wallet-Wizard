@@ -58,23 +58,26 @@
 
 .cardCredit-input {
     margin-left:0;
-    width:9.75rem;
+    width:10.4rem;
     border-style: none;
     border-radius: 4px;
-    padding:3px;
+    padding:1.75%;
+    font-size:13px;
+    border:1px solid black;
 }
-
-.creditLabel {
-    margin-left:1.3rem;
-    color:#f4f4f4;
-}
-
 
 .cardExpiration {
     margin-left:1.3em;
     margin-top:1rem;
     margin-bottom:1rem;
 }
+
+
+.creditLabel {
+    margin-left:1.3rem;
+    color:#f4f4f4;
+}
+
 
 .editIcon {
     float: right;
@@ -126,11 +129,11 @@
 
 
 .cardExpiration-input {
-    padding:2px;
+    padding:1.75%;
     margin-left:0;
     border-style: none;
     border-radius: 4px;
-    padding-top:1px;
+    border:1px solid black;
 }
 
 input {
