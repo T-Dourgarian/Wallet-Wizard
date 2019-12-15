@@ -64,10 +64,5 @@ router.delete('/:id',rejectUnauthenticated,(req,res) => {
 })
 
 
-router.get('/public',(req,res) => {
-    console.log('Hellow world');
-    res.sendStatus(200);
-})
-
 
 module.exports = router;
